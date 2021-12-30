@@ -1,0 +1,85 @@
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+
+
+     .logo a{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #000;
+    }
+
+    nav {
+        display: flex;
+
+     
+
+        ul li {
+            list-style: none;
+            display: inline-block;
+
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                padding: 0 15px;
+            }
+
+                a:hover{
+                    background-color: yellow;
+                }
+            
+        }
+
+        .nav-cart{
+            cursor: pointer;
+            position: relative;
+
+            span{
+                position: absolute;
+                top: -12px;
+                right: -7px;
+                background-color: red;
+                font-size: 10px;
+                color: #fff;
+                padding: 3px 5px;
+                border-radius: 50%;
+            }
+        }
+
+        .close{
+            cursor: pointer;
+            display: none;
+        }
+
+        @media(max-width: 650px){
+            .close{
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+    
+            }
+        }
+    }
+
+    @media(max-width: 650px){
+        ul {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            background: #fff;
+        }
+
+    
+    }
+
+   
+}
