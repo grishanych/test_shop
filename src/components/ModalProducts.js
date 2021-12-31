@@ -23,16 +23,16 @@ const ModalProducts = () => {
       <Button type="primary" onClick={showModal}>
         Open product list
       </Button>
-      <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={900}>
+      <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={700}>
         <h1 style={{display: 'flex', justifyContent: 'center'}}>Here you can see all our products list</h1>
-       <div>
+       <div style={{display: 'flex', flexDirection:'column', alignItems:'center'}}>
            {
                data.map(post => {
                    return(
-                       <div key={post.id} className='post'>
+                       <div key={post.id} >
                             <h3>{post.id} {post.name}</h3>
                            <img src={post.imgUrl} width={200}/>
-                           <p>{post.size.width}</p>
+                           <p>Price {post.size.width}$</p>
 
                        </div> 
                    )

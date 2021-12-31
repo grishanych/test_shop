@@ -27,7 +27,9 @@ header{
             }
 
                 a:hover{
-                    background-color: yellow;
+                    background-color: rgba(255, 187, 0, 0.973);
+                    transition: 1.5s;
+                    border-radius: 4px;
                 }
             
         }
