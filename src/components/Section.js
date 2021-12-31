@@ -7,9 +7,12 @@ import WriteComment from "./Comment";
 import ModalProducts from "./ModalProducts";
 
 
+
+
+
 class Section extends Component {
   state = {
-    data: [{DataProducts}],
+    data: [{ DataProducts }],
     count: 4,
   };
 
@@ -26,33 +29,27 @@ class Section extends Component {
       {
         title: "Product name",
         dataIndex: "name",
-        // width: "25%",
       },
       {
         title: "Width",
         dataIndex: ['size', 'width'],
-        // width: "50%",
       },
       {
         title: "Height",
         dataIndex: ['size', 'height'],
-        // width: "50%",
       },
       {
         title: "Weight",
         dataIndex: 'weight',
-        // width: "50%",
       },
       {
         title: "Comments",
         dataIndex: 'comments',
-        // width: "50%",
       },
       {
         title: "Image",
         dataIndex: "imgUrl",
         render: imgUrl => <img src={imgUrl} width={50} />,
-        // width: "10%",
         className: "click-zoom"
       },
       {
@@ -60,24 +57,33 @@ class Section extends Component {
         dataIndex: "operation",
         // width: "10%",
         render: (_, record) =>
-         (
+        (
+          <div>
             <Popconfirm
               size="middle"
-              title="Видалити товар?"
+              title="Are you sure you want to edit?"
+              onConfirm={() => this.handleDelete(record.id)}
+            >
+              <a>&nbsp;&nbsp;Edit</a>
+            </Popconfirm>
+            <Popconfirm
+              size="middle"
+              title="Delete this product?"
               onConfirm={() => this.handleDelete(record.id)}
             >
               <a>&nbsp;&nbsp;Delete</a>
             </Popconfirm>
-          ),
+          </div>
+        ),
       },
 
 
     ];
 
 
- 
+
   }
-  
+
 
   handleDelete = (id) => {
     const data = [...this.state.data];
@@ -95,24 +101,24 @@ class Section extends Component {
       id: count,
       title,
       text,
-   };
+    };
     this.setState({
       data: [...data, newData],
       count: count + 1,
     });
   };
 
+
   render() {
-    const data = [...this.state.data];
     const columns = this.columns.map((col) => {
       return {
         ...col,
       };
     });
-    
+
     return (
       <div >
-         <ModalProducts />
+        <ModalProducts />
         <Table
           className="dev-table-faq"
           bordered
@@ -121,8 +127,8 @@ class Section extends Component {
         />
         <WriteComment />
         <DevAddInputFaq onAdd={this.onAdd} />
-       
-        
+
+
       </div>
 
     );

@@ -8,9 +8,6 @@ class Header extends Component {
     render() {
         return (
             <header>
-                {/* <div className="header-menu">
-                    <img src={Menu} alt="" width="20"></img>
-                </div> */}
                 <div className="logo">
                     <h1><Link to="/">Product shop</Link></h1>
                 </div>
