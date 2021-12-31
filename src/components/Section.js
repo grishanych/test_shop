@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Table, Popconfirm } from "antd";
 import DevAddInputFaq from "./DevAddInputFaq";
 import './scss/section.scss';
-import DataProducts from "./data/test.json"
+import DataProducts from "./data/products.json"
 import WriteComment from "./Comment";
+import ModalProducts from "./ModalProducts";
 
 
 class Section extends Component {
@@ -111,6 +112,7 @@ class Section extends Component {
     
     return (
       <div >
+         <ModalProducts />
         <Table
           className="dev-table-faq"
           bordered
@@ -119,6 +121,7 @@ class Section extends Component {
         />
         <WriteComment />
         <DevAddInputFaq onAdd={this.onAdd} />
+       
         
       </div>
 
