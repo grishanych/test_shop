@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Menu from './svg/bars-solid.svg';
 import Cart from './svg/shopping-cart-solid.svg';
 import Close from './svg/times-solid.svg';
 import { Link } from 'react-router-dom';
@@ -17,8 +16,8 @@ class Header extends Component {
                 </div>
                 <nav>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/product">Products</Link></li>
+                        <li> <Link to="/">Home</Link></li>
+                        <li><Link to="/product" >Product</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                         <li className="close"> <img src={Close} alt="" width="20"></img></li>
                     </ul>
