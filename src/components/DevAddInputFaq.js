@@ -21,14 +21,14 @@ class DevAddInputFaq extends Component {
       >
         <Form.Item
           name="title"
-          rules={[{ required: true, message: "Введіть питання" }]}
+          rules={[{ required: true, message: "Введіть назву товару" }]}
         >
           <Input placeholder="Product name" />
         </Form.Item>
 
         <Form.Item
           name="text"
-          rules={[{ required: true, message: "Введіть відповідь" }]}
+          rules={[{ required: true, message: "Введіть опис" }]}
         >
           <TextArea style={{ height: 100 }} placeholder="About" />
         </Form.Item>
