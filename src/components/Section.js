@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Table, Popconfirm } from "antd";
 import DevAddInputFaq from "./DevAddInputFaq";
 import './scss/section.scss';
+import DataProducts from "./data/test.json"
 
 
 class Section extends Component {
@@ -28,8 +29,9 @@ class Section extends Component {
       {
         title: "Image",
         dataIndex: "imgUrl",
+        render: imgUrl => <img src={imgUrl} width={50} />,
         width: "10%",
-        className:"click-zoom"
+        className: "click-zoom"
       },
       {
         title: "Operation",
@@ -48,27 +50,9 @@ class Section extends Component {
       },
     ];
 
+
     this.state = {
-      dataSource: [
-        {
-          id: 1,
-          title: "SONY XPERIA XZ2",
-          text: "New in Sealed Box SONY XPERIA XZ2 COMPACT H8314/H8324 19mp Fingerprint 5.0",
-          imgUrl: <img src="https://content2.rozetka.com.ua/goods/images/big/221300065.jpg" width={50}/>
-        },
-        {
-          id: 2,
-          title: "Sony PS5 PlayStation 5 Console",
-          text: "NEW | Sony PS5 PlayStation 5 Console | Blu-Ray Disc or Digital | FREE OVERNIGHT",
-          imgUrl: <img src="https://game-shop.com.ua/prodimages/23861/thumbs/116419_457_479.jpg"  width={50}/>
-        },
-        {
-          id: 3,
-          title: "SONY XPERIA XZ1 COMPACT SO-02K",
-          text: "Brand New SONY XPERIA XZ1 COMPACT SO-02K 4gb 32gb DOCOMO unlocked japan version",
-          imgUrl: <img src="https://content.rozetka.com.ua/goods/images/big/229651554.jpg"  width={50}/>
-        },
-      ],
+      dataSource: [{DataProducts}],
       count: 4,
     };
   }
@@ -94,7 +78,10 @@ class Section extends Component {
   };
 
   render() {
-    const { dataSource } = this.state;
+    const data = [];
+    DataProducts.map((post) => {
+      data.push(post);
+    });
 
     const columns = this.columns.map((col) => {
       return {
@@ -106,7 +93,7 @@ class Section extends Component {
         <Table
           className="dev-table-faq"
           bordered
-          dataSource={dataSource}
+          dataSource={data}
           columns={columns}
         />
         <DevAddInputFaq handleAdd={this.onAdd} />
