@@ -1,13 +1,6 @@
 @import "~antd/dist/antd.css";
 
 
-.dev-input-FAQ{
-    display: flex;
-    flex-direction: column;
-    padding: 1px 8px;
-    margin-bottom: 0;
-
-
 .dev-add-row-btn {
     background: #fff;
     border: none;
@@ -27,10 +20,8 @@
     border-color: #ffffff;
     background: #fa8c16;
 }
-}
 
 
-.faq-body{
     .ant-table-pagination.ant-pagination  {
     background-color: #fbf4e4;
     height: 56px;
@@ -59,8 +50,7 @@
 }
 
 .ant-pagination-item.ant-pagination-item-1.ant-pagination-item-active:hover{
- 
-    background-color: transparent;
+     background-color: transparent;
     
 }
 
@@ -84,66 +74,32 @@
     background-color: #fe7729;
     border: 1px solid #fa8c16;
     border-radius: 2px;
-    max-width: 22px;
-    height: 22px;
 &:hover{
     background-color: none;
     border:1px solid transparent;
     border-radius: 0;
-
-    
+   
 }
-  
- 
-}
-
-
-
-.ant-pagination-item-active a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 22px;
-    height: 22px;
-    background-color: #fe7729;
-}
-.ant-pagination-item-active a:hover{
-    color: #fff;
-}
-
-
-.ant-pagination-item.ant-pagination-item-1.ant-pagination-item-active{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 24px;
-    height: 24px;
-    margin-right: 0;
-}
-
-
-.ant-pagination-prev.ant-pagination-disabled{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 24px;
-    height: 24px;
-    margin-right: 0;
-}
-
-.ant-pagination-next.ant-pagination-disabled{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 24px;
-    height: 24px;
-    margin-right: 0;
+   
 }
 
 
 .ant-table-footer{
     padding: 12px 0;
 }
- 
 
+// .click-zoom{
+//     transform: scale(1.4)
+// }
+
+.click-zoom {
+    cursor: zoom-in;
+    
+   }
+   .click-zoom img {
+    transition: 2s;
 }
+   .click-zoom img:hover {
+    transform: scale(3.5) rotate(0deg) translateX(-20px) translateY(0);
+    z-index: 2;
+   }

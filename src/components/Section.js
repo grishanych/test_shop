@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table, Popconfirm } from "antd";
 import DevAddInputFaq from "./DevAddInputFaq";
+import './scss/section.scss';
 
 
 class Section extends Component {
@@ -28,6 +29,7 @@ class Section extends Component {
         title: "Image",
         dataIndex: "imgUrl",
         width: "10%",
+        className:"click-zoom"
       },
       {
         title: "Operation",
@@ -52,7 +54,7 @@ class Section extends Component {
           id: 1,
           title: "SONY XPERIA XZ2",
           text: "New in Sealed Box SONY XPERIA XZ2 COMPACT H8314/H8324 19mp Fingerprint 5.0",
-          imgUrl: <img src="https://content2.rozetka.com.ua/goods/images/big/221300065.jpg"  width={50}/>
+          imgUrl: <img src="https://content2.rozetka.com.ua/goods/images/big/221300065.jpg" width={50}/>
         },
         {
           id: 2,
