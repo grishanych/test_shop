@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Table, Popconfirm } from "antd";
+import { Table, Popconfirm, Menu, Dropdown} from "antd";
 import DevAddInputFaq from "./DevAddInputFaq";
 import './scss/section.scss';
 import DataProducts from "./data/products.json"
 import WriteComment from "./Comment";
 import ModalProducts from "./ModalProducts";
+import { DownOutlined, EditOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 
 
@@ -23,12 +24,13 @@ class Section extends Component {
         title: "ID",
         dataIndex: "id",
         width: "5%",
-        defaultSortOrder: "ascend",
-        sorter: (a, b) => a.id - b.id,
+
       },
       {
         title: "Product name",
         dataIndex: "name",
+        defaultSortOrder: "ascend",
+        sorter: (a, b) => a.name.localeCompare(b.name)
       },
       {
         title: "Width",
@@ -45,7 +47,7 @@ class Section extends Component {
       {
         title: "Comments",
         dataIndex: 'comments',
-      },
+       },
       {
         title: "Image",
         dataIndex: "imgUrl",
@@ -55,7 +57,6 @@ class Section extends Component {
       {
         title: "Operation",
         dataIndex: "operation",
-        // width: "10%",
         render: (_, record) =>
         (
           <div>
@@ -79,9 +80,6 @@ class Section extends Component {
 
 
     ];
-
-
-
   }
 
 
@@ -92,15 +90,12 @@ class Section extends Component {
     });
   };
 
-
-
-
-  onAdd = (title, text) => {
+  onAdd = (name, comments) => {
     const { data, count } = this.state;
     const newData = {
       id: count,
-      title,
-      text,
+      name,
+      comments,
     };
     this.setState({
       data: [...data, newData],
@@ -109,7 +104,18 @@ class Section extends Component {
   };
 
 
+
+
+
   render() {
+    const menu = (
+      <Menu>
+        <Menu.Item >Sorted by id</Menu.Item>
+        <Menu.Item >Sorted by name</Menu.Item>
+        <Menu.Item >Sorted by count</Menu.Item>
+      </Menu>
+    );
+
     const columns = this.columns.map((col) => {
       return {
         ...col,
@@ -118,13 +124,19 @@ class Section extends Component {
 
     return (
       <div >
-        <ModalProducts />
+       <ModalProducts />
+       <Dropdown overlay={menu} trigger={['click']} className="dropdown-sort">
+          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+            Sorted by <DownOutlined />
+          </a>
+        </Dropdown>
         <Table
           className="dev-table-faq"
           bordered
           dataSource={DataProducts}
           columns={columns}
         />
+        <div><h3><EditOutlined />&nbsp;&nbsp;Write your comment here&nbsp;&nbsp;< ArrowDownOutlined/> </h3></div>
         <WriteComment />
         <DevAddInputFaq onAdd={this.onAdd} />
 

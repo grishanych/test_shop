@@ -14,21 +14,21 @@ class DevAddInputFaq extends Component {
         name="basic"
         initialValues={{ remember: true }}
         autoComplete="off"
-        onFinish={({ title, text }) => {
-          onAdd(title, text);
-          message.success(title + " успішно додано")
+        onFinish={({ name, comments }) => {
+          onAdd(name, comments);
+          message.success(name + " успішно додано")
         }}
       >
         <Form.Item
-          name="title"
-          rules={[{ required: true, message: "Введіть назву товару" }]}
+          name="name"
+          rules={[{ required: true, message: "Enter product name" }]}
         >
           <Input placeholder="Product name" />
         </Form.Item>
 
         <Form.Item
-          name="text"
-          rules={[{ required: true, message: "Введіть опис" }]}
+          name="comment"
+          rules={[{ required: true, message: "Enter properties" }]}
         >
           <TextArea style={{ height: 100 }} placeholder="About" />
         </Form.Item>
